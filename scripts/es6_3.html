@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>화살표 함수</title>
+<script>
+	//선언적 함수
+	//function 앞에서 선언해줘도 되고, 뒤에서 해둬도 제대로 호줄이 된다.  
+	//함수 이름이 있는 경우 선언적 함수에 해당한다. 
+	compute(10,100);
+	function compute(a,b){
+		var x=a;
+		var y=b;
+		var result = x/y;
+		console.log(result);
+	}
+	//compute();
+
+
+	//익명함수 - 이것을 통하여 화살표 함수를 만들게 된다. 
+	//함수를 만들었는데 이름이 없는경우
+	//함수를 변수에 저장을 해준거 결국 변수 이름으로 호출해주면 된다. 
+	//이런경우 선언적 호출처럼 함수를 호출하기 전에 호출할 수 없다
+	//반드시 함수뒤에 선언해 줘야지 나타난다.
+	//compute2(); //함수 앞에 선언해줘서 결과 안나옴
+	var compute2 = function(a,b){
+		var x=a;
+		var y=b;
+		var result2 = x*y;
+		console.log(result2);
+	}
+	compute2(0.5,10);
+
+
+	//즉시 실행 함수 - 함수를 선언하는 동시에 실행 함수, 재호출은 안됨! 한번만 실행
+	(function(a){
+		var sum = a;
+		console.log(sum);
+	})(10);
+	// 10은 a에 전달할 인자값
+
+	//전달하는 인자값이 없는경우 이렇게도 써준다.
+	var instant = (function(){
+		console.log('즉시 실행 함수');
+	})();
+
+	//매개변수의 개수가 정해지지 않은 함수
+	//arguments 객체는 인지값을 저장해주는 객체
+	function showSubject(){
+		for(i=0; i<arguments.length;i++){
+			console.log(arguments[i]);
+		}
+	}
+	showSubject('html','css','js','jquery');
+
+	//ES6 화살표함수 - function 키워드 생략, {} 생략, return 생략
+	var TheFnc = function(a,b){
+		return a*b;
+	}
+	console.log( TheFnc(2,5) );
+
+	var TheFnc = (a,b) => a*b;
+	console.log( TheFnc(2,5) );
+
+	function TheFnc2(c,d){
+		var sum = c+d;
+		return sum;
+	}
+	console.log( TheFnc2(10,5) );
+
+	var TheFnc2 = function(c,d){
+		var sum = c + d;
+		return sum;
+	}
+	console.log(TheFnc2(10,5))
+
+	var TheFnc2 = (c,d) => {
+		var sum = c + d;
+		return sum;
+	}
+	console.log(TheFnc2(10,5))
+</script>
+</head>
+<body>
+	
+</body>
+</html>

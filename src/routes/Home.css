@@ -1,0 +1,31 @@
+.container{
+	height: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.loader{
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: 300;
+}
+
+.movies{
+	display: grid;
+	grid-template-columns: repeat(2, minmax(400px, 1fr)); /*최소크기는 400px유지해라, 최대는 1:1*/
+	grid-gap: 100px; /* 열과 열사이의 간격 */
+	padding: 50px;
+	width: 80%;
+	padding-top: 70px;
+}
+
+@media screen and (max-width: 767px) { /* 0~767 모바일 크기가 되면 */
+	.movies{
+		grid-template-columns: 1fr; /* 1열 짜리로 바뀌게 된다 */
+		width: 100%;
+	}
+}
+

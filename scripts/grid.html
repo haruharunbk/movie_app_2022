@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>grid</title>
+<style>
+	.grid-container{ /* 부모 */
+		display: grid; width: 600px;
+		grid-template-rows: 70px 200px 70px; /* 3행 */
+		grid-template-columns: repeat(3, 1fr); /* 그리드에 열(칸)을 각각 동일한 비율(fr)로 3개 만들어요 */
+		grid-gap: 10px;
+	}
+
+	.grid-item{background: #0169ff; color: #fff; display: flex; justify-content: center; align-items: center;}
+	.grid-item.header{grid-column: 1/-1; grid-row-start:1; grid-row-end:2;} 
+	/* 경계선 번호가 처음(1)부터 끝번(-1)까지 영역을 차지해요 / 끝번이 3이든지 4든지 항상 -1로 표기 */
+	/* 풀어서 쓰면 grid-colum-start:1; grid-colum-end:4; 까지 차지해라  */
+
+	.grid-item.nav{
+		grid-column-start: 1; grid-column-end:2;
+		grid-row-start: 2; grid-row-end: 3;
+	}
+
+	.grid-item.main{
+		grid-column-start: 2; grid-column-end:3;
+		grid-row-start: 2; grid-row-end: 3;
+	}
+
+	.grid-item.aside{
+		grid-column-start: 3; grid-column-end:4;
+		grid-row-start: 2; grid-row-end: 3;
+	}
+	.grid-item.footer{
+		grid-column: 1/-1;
+		grid-row-start: 3; grid-row-end: 4;
+	}
+
+
+
+</style>
+</head>
+<body>
+	<div class="grid-container">
+		<div class="grid-item header">header</div>
+		<div class="grid-item nav">nav</div>
+		<div class="grid-item main">Main content</div>
+		<div class="grid-item aside">aside</div>
+		<div class="grid-item footer">Footer</div>
+	</div>
+</body>
+</html>

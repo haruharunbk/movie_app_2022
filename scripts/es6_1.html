@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ES6 변수 : let, const</title>
+<script>
+	// var num = 10;
+	// var num = 20;
+	// document.write(num);
+	//var 변수를 중복 선언 가능
+
+	// let num = 10;
+	// let num = 20;
+	// document.write(num); //에러남
+	// let 변수는 중복 선언이 안됨
+
+	const DIVISION_VALUE = 100;
+	// const DIVISION_VALUE = 200;
+	// DIVISION_VALUE = 300; // 상수. 죽 값을 변경할 수 없음
+
+	// let cm = prompt('cm을 입력하세요','');
+	// let m = cm / DIVISION_VALUE;
+	// document.write(m + 'm입니다.');
+
+	//함수 레벨 스코프와 블록레멜 스코프
+	// 전역변수, 지역변수
+
+	var kor = 90; //전역변수
+	function getScore(){
+		kor = 100; //전역변수
+		console.log(kor); //100
+	}
+	getScore(); //함수실행
+	console.log(kor); //100
+
+	var kor = 90; //전역변수
+	function getScore(){
+		var kor = 100; //지역변수 //함수 밖에서는 물거품처럼 사라짐
+		console.log(kor); //100
+	}
+	getScore(); //함수실행
+	console.log(kor); //90
+
+
+	var num = 10; //전역변수 
+	{
+		var num = 20; //전역변수
+		console.log(num); //20
+	}
+	console.log(num); //20
+
+
+	let num = 100; // 전역변수
+	{
+		let num = 20; //지역변수
+		console.log(num); //20
+	}
+	console.log(num); //100
+	// let은 함수가 아니여도 블록레벨안에서는 우선순위가 local이 된다. 
+
+
+	const num = 10; //전역변수 
+	{
+		const num = 30; //지역변수
+		console.log(num); //30
+	}
+	console.log(num); //10
+
+	
+	var num = 70; //전역변수 
+	if( num === 70 ){
+		var num = 50; // 전역변수
+	}
+	console.log(num); //50
+
+
+	let num = 90; //전역변수 
+	if( num === 90 ){
+		let sum = 100; // 지역변수
+	}
+	console.log(sum); //에러
+	// 블록안에서 사용된 지역변수는 블록 밖에서는 사용할 수 없게 된다.
+</script>
+</head>
+<body>
+	
+</body>
+</html>
